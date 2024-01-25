@@ -20,6 +20,7 @@ public class Signup {
 
         driver.manage().window().maximize();
         driver.get("http://www.automationpractice.pl/index.php");
+        driver.getTitle();
 
     }
 @Test

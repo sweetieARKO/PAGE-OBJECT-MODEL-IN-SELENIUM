@@ -32,18 +32,9 @@ public class AddToCart {
         searchBoxElements.sendKeys(searchTerm);
     }
 
-    public void searchingTwo() {
-        driver.findElement(searchButton).clear();
-        driver.findElement(searchBox).sendKeys("Trousers");
-    }
 
     public void setSearchButton() {
         driver.findElement(searchButton).click();
-    }
-
-    public void setSearchButton2() {
-        driver.findElement(searchButton).click();
-
     }
 
     public void setSecondImage() {

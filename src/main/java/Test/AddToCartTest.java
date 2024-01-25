@@ -5,9 +5,7 @@ import ListOfElement.AddToCart;
 import ListOfElement.SignIn;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,17 +17,19 @@ public class AddToCartTest {
 
     @BeforeTest
     public void beforeTest() {
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("http://www.automationpractice.pl/index.php");
+        driver.getTitle();
         System.out.println("Successfully opened the webpage");
         login = new SignIn(driver);
     }
 
     @Test
-    public void shop() {
+    public void shop()  {
         AddToCart cart = new AddToCart(driver);
         cart.setSearchBox("blouses");
         System.out.println("Successfully entered the search term");
@@ -43,11 +43,12 @@ public class AddToCartTest {
         // Return to the homepage
         driver.navigate().to("http://www.automationpractice.pl/index.php");
 
-        // Search for Trousers
+
         cart.setSearchBox("Printed dresses");
         System.out.println("Successfully entered the search term");
         cart.setSearchButton();
         System.out.println("Successfully clicked the search button");
+
         cart.setSecondImage();
         System.out.println("Successfully clicked on the second image");
         cart.setContinue();

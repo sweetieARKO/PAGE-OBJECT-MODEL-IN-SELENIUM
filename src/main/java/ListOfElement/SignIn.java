@@ -10,12 +10,12 @@ public class SignIn {
         this.driver = driver;
     }
 
-        By signup = By.xpath("//a[contains(text(),'Sign in')]");
+        By signin = By.xpath("//a[contains(text(),'Sign in')]");
         By email = By.xpath("//input[@id='email']");
         By password = By.xpath("//input[@id='passwd']");
         By button = By.xpath("//span[normalize-space()='Sign in']");
         public void SignInUp(){
-                driver.findElement(signup).click();
+                driver.findElement(signin).click();
         }
         public void Enteremail(){
 

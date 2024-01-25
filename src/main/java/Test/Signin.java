@@ -1,4 +1,4 @@
-package Test;
+ package Test;
 
 import ListOfElement.SignIn;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -16,10 +16,10 @@ public class Signin {
         public void  beforeTest(){
             WebDriverManager.edgedriver().setup();
             driver= new EdgeDriver();
-
             driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
             driver.get("http://www.automationpractice.pl/index.php");
-            System.out.println("hello hhy");
+            System.out.println("Successfully opened the webpage");
             login = new SignIn(driver);
         }
         @Test
