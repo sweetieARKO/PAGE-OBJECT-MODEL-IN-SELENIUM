@@ -36,7 +36,6 @@ public class AddToCart {
     public void setSearchButton() {
         driver.findElement(searchButton).click();
     }
-
     public void setSecondImage() {
         Actions builder = new Actions(driver);
         builder.moveToElement(driver.findElement(secondImage)).perform();
